@@ -1,0 +1,77 @@
+@use '../scss/mixins';
+@import '../scss/variables.scss';
+
+.heroSection {
+  display: flex;
+  width: 100vw;
+  height: auto;
+  min-height: 90vh;
+  background: $dark;
+  color: $white;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    @include mixins.container(xl);
+    justify-content: center;
+  }
+
+  .heroContent {
+    display: block;
+  }
+
+  .heroText {
+    display: block;
+    position: relative;
+    .brain {
+      display: block;
+      width: 600px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: -1;
+    }
+    div.text {
+      display: block;
+      font-size: 148px;
+      line-height: 1;
+      margin: 0;
+      .shadow {
+        @include mixins.text-gradient-vt($white, darken($white, 40%));
+      }
+      .stroke {
+        -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+        -webkit-text-stroke-width: 3px;
+        -webkit-text-stroke-color: $blue;
+      }
+      &.creative {
+        margin-left: 1rem; // Offset margin of data-scroll-speed
+        width: calc(100%);
+      }
+      &.developer {
+        margin: -25px 0 0 105px;
+      }
+      &.designer {
+        margin: -25px 0 0 calc(-2rem + 205px); // Offset margin of data-scroll-speed
+        width: calc(100% - 205px);
+      }
+      i {
+        position: relative;
+        display: inline-block;
+        @include mixins.font-heading(600);
+      }
+      b {
+        position: absolute;
+        left: -66px;
+        bottom: 20px;
+        z-index: -1;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-style: italic;
+        font-size: 100px;
+        @include mixins.text-gradient-hz(rgba($blue, 50%), $dark);
+        // opacity: 0.3;
+      }
+    }
+  }
+}

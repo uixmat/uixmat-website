@@ -1,0 +1,100 @@
+@use './mixins';
+@use './variables' as *;
+@import './normalize';
+
+@import './nprogress';
+
+@import url('https://use.typekit.net/oun8ody.css');
+
+* {
+  box-sizing: border-box;
+  @include mixins.font-global;
+}
+
+body,
+html {
+  background: $dark;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @include mixins.font-heading(700);
+}
+
+a,
+a:active,
+a:focus {
+  outline: none;
+}
+
+.c-scrollbar_thumb {
+  background: white;
+}
+
+[data-scroll-container] {
+  perspective: 999999px !important;
+}
+
+.cursor {
+  position: fixed;
+  left: -10px;
+  top: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: rgba($blue, 0.5);
+  backdrop-filter: blur(2px);
+  z-index: 9995;
+  pointer-events: none;
+  transition: height 0.18s ease, width 0.18s ease, top 0.18s ease,
+    left 0.18s ease, border 0.18s ease, opacity 0.18s ease;
+  opacity: 1;
+  &.grow {
+    width: 60px;
+    height: 60px;
+    top: -15px;
+    left: -15px;
+    border-width: 3px;
+    opacity: 1;
+  }
+  &.project,
+  &.thumb {
+    width: 70px;
+    height: 70px;
+    top: -30px;
+    left: -30px;
+    border-width: 3px;
+    background-color: rgba($blue, 0.5);
+    backdrop-filter: blur(2px);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    &:before {
+      position: relative;
+      top: 2px;
+      content: url('/svg/eye.svg');
+      animation: growIn 0.18s ease forwards;
+      transform-origin: center center;
+    }
+  }
+  &.thumb:before {
+    content: url('/svg/thumb.svg');
+  }
+  &.hidden {
+    display: none;
+  }
+}
+
+@keyframes growIn {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

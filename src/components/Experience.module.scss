@@ -1,0 +1,158 @@
+// Experience
+@use '../scss/mixins';
+@import '../scss/variables.scss';
+
+.experienceSection {
+  display: flex;
+  width: 100vw;
+  height: auto;
+  min-height: 60vh;
+  background: $white;
+  color: $dark;
+  padding-top: 100px;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    @include mixins.container(xl);
+    padding: 0;
+  }
+
+  .heading {
+    position: relative;
+    font-size: 120px;
+    margin: 0 0 2rem 4rem;
+    line-height: 1;
+    perspective: 1000px;
+    &:before {
+      content: '04.';
+      font-size: 30px;
+      position: absolute;
+      top: 10px;
+      left: -4rem;
+      color: $purple;
+    }
+    div.parent {
+      display: inline-block;
+      perspective: 1000px;
+      font-family: inherit;
+      div {
+        display: inline-block;
+        font-family: inherit;
+      }
+    }
+  }
+
+  .cols {
+    display: grid;
+    gap: 0;
+    grid-template-columns: repeat(12, 1fr);
+    height: 100%;
+    border-top: 1px solid #dbdbdb;
+
+    .sidebar {
+      grid-column: 1 / span 3;
+    }
+
+    .projects {
+      grid-column: 4 / span 9;
+      border-left: 1px solid #dbdbdb;
+      .project {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(50%, 1fr));
+        gap: 0;
+        padding: 0;
+        text-decoration: none;
+        color: $dark;
+        &:last-of-type .projectArtwork {
+          padding-bottom: 4rem;
+        }
+        .projectInfo {
+          display: block;
+          padding-top: 4rem;
+          padding-left: 4rem;
+        }
+        .projectArtwork {
+          padding-left: 4rem;
+          padding-top: 4rem;
+          border-left: 1px solid #dbdbdb;
+        }
+        &:nth-child(2n + 2) {
+          .projectInfo {
+            order: 2;
+          }
+          .projectArtwork {
+            order: 1;
+            margin-right: -1px;
+            position: relative;
+            border-left: none;
+            border-right: 1px solid #dbdbdb;
+          }
+        }
+      }
+      h3 {
+        margin: 0 0 2rem 0;
+        padding: 0 0 1.5rem 0;
+        font-size: 50px;
+        border-bottom: 1px solid #dbdbdb;
+      }
+      h4 {
+        margin: 0 0 1.5rem 0;
+        font-size: 30px;
+      }
+      p {
+        @include mixins.font-global(400);
+        line-height: 1.45em;
+        font-size: 18px;
+        color: lighten($gray, 30%);
+        margin-bottom: 1.5rem;
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        li {
+          @include mixins.font-global(400);
+          line-height: 1.45em;
+          font-size: 18px;
+          color: lighten($gray, 30%);
+          margin-bottom: 0.5rem;
+          position: relative;
+          padding-left: 1.5rem;
+          &:before {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background: $blue;
+            position: absolute;
+            left: 0;
+            top: calc(7.5px);
+          }
+        }
+      }
+
+      .artwork {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1 / 1.1;
+        background: linear-gradient(
+          45deg,
+          rgba(126, 10, 52, 1) 0%,
+          rgba(8, 9, 13, 1) 100%
+        );
+        overflow: hidden;
+        img {
+          display: block;
+          width: auto;
+          height: auto;
+          border: 2px solid red;
+        }
+      }
+    }
+  }
+}

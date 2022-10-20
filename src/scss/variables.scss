@@ -1,0 +1,27 @@
+// Colors
+$white: #ffffff;
+$dark: #0f0f17;
+$blue: #525efd;
+$dark-blue: #313397;
+$purple: #7b47e8;
+$gray: #41415c;
+$green: #53fec8;
+
+// Breakpoints
+$breakpoints: (
+  'xs': (
+    min-width: 480px,
+  ),
+  'sm': (
+    min-width: 768px,
+  ),
+  'md': (
+    min-width: 992px,
+  ),
+  'lg': (
+    min-width: 1200px,
+  ),
+  'xl': (
+    min-width: 1860px,
+  ),
+) !default;

@@ -1,0 +1,122 @@
+// Mixins
+@use './variables' as *;
+
+// Fonts
+@mixin font-heading($weight: 600) {
+  // font-family: neue-haas-grotesk-display, sans-serif;
+  // font-weight: $weight; //600, 700
+  // font-style: normal;
+  font-family: din-2014, sans-serif;
+  font-weight: $weight;
+  font-style: normal;
+  text-transform: uppercase;
+}
+@mixin font-global($weight: 400) {
+  font-family: neue-haas-grotesk-text, sans-serif;
+  font-weight: $weight; //400, 500, 700
+  font-style: normal;
+}
+
+// Gradient Text
+@mixin text-gradient-hz($from: $blue, $to: $purple) {
+  background: linear-gradient(90deg, $from, $to);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@mixin text-gradient-vt($from: $blue, $to: $purple) {
+  background: linear-gradient($from 20%, $to 80%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// Breakpoints
+@mixin breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media only screen and #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+// Container
+@mixin container($consize: default) {
+  padding: 0 15px;
+  margin: 0 auto;
+  max-width: 100%;
+
+  @if $consize == default {
+    @include breakpoint('xs') {
+      width: 100%;
+    }
+    @include breakpoint('sm') {
+      width: 750px;
+    }
+    @include breakpoint('md') {
+      width: 900px;
+    }
+    @include breakpoint('lg') {
+      width: 1100px;
+    }
+    @include breakpoint('xl') {
+      width: 1500px;
+    }
+  } @else if $consize == sm {
+    @include breakpoint('xs') {
+      width: 100%;
+    }
+    @include breakpoint('sm') {
+      width: 750px;
+    }
+    @include breakpoint('md') {
+      width: 840px;
+    }
+    @include breakpoint('lg') {
+      width: 840px;
+    }
+  } @else if $consize == md {
+    @include breakpoint('xs') {
+      width: 100%;
+    }
+    @include breakpoint('sm') {
+      width: 750px;
+    }
+    @include breakpoint('md') {
+      width: 900px;
+    }
+    @include breakpoint('lg') {
+      width: 1100px;
+    }
+  } @else if $consize == lg {
+    @include breakpoint('xs') {
+      width: 100%;
+    }
+    @include breakpoint('sm') {
+      width: 750px;
+    }
+    @include breakpoint('md') {
+      width: 900px;
+    }
+    @include breakpoint('lg') {
+      width: 1300px;
+    }
+  } @else if $consize == xl {
+    @include breakpoint('xs') {
+      width: 100%;
+    }
+    @include breakpoint('sm') {
+      width: 750px;
+    }
+    @include breakpoint('md') {
+      width: 900px;
+    }
+    @include breakpoint('lg') {
+      width: 1500px;
+    }
+    @include breakpoint('xl') {
+      width: 1600px;
+    }
+  }
+}

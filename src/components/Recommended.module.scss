@@ -1,0 +1,92 @@
+// Recommended
+@use '../scss/mixins';
+@import '../scss/variables.scss';
+
+.recSection {
+  display: flex;
+  width: 100vw;
+  height: auto;
+  min-height: 60vh;
+  background: $dark;
+  color: $white;
+  padding-top: 100px;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    @include mixins.container(xl);
+    padding: 0;
+  }
+
+  .heading {
+    position: relative;
+    font-size: 120px;
+    margin: 0 0 2rem 4rem;
+    line-height: 1;
+    -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: $blue;
+    &:before {
+      content: '05.';
+      font-size: 30px;
+      position: absolute;
+      top: 10px;
+      left: -4rem;
+      color: $white;
+      -webkit-text-fill-color: $white;
+      -webkit-text-stroke-width: 0px;
+    }
+  }
+
+  .comment {
+    display: block;
+    width: 100%;
+    border-top: 1px solid lighten($dark, 20%);
+    padding: 80px 4rem;
+
+    blockquote {
+      margin: 0;
+      padding: 0;
+      span {
+        float: left;
+        width: 200px;
+        height: 80px;
+        font-size: 100px;
+      }
+      big {
+        font-size: 60px;
+      }
+    }
+
+    .author {
+      display: flex;
+      flex-direction: row;
+      margin-left: 200px;
+      margin-top: 2rem;
+      align-items: center;
+      img {
+        border-radius: 50%;
+      }
+      .authorMeta {
+        margin-left: 2rem;
+        h5 {
+          font-size: 24px;
+          line-height: 1;
+          margin: 0 0 0.5rem 0;
+          @include mixins.font-heading(700);
+          i {
+            -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: $blue;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 22px;
+          }
+        }
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

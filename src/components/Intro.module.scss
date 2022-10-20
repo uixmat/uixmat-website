@@ -1,0 +1,79 @@
+// Intro
+@use '../scss/mixins';
+@import '../scss/variables.scss';
+
+.introSection {
+  display: flex;
+  width: 100vw;
+  height: auto;
+  min-height: 70vh;
+  background: $white;
+  color: $dark;
+  padding-top: 100px;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    @include mixins.container(xl);
+    padding: 0;
+    border-top: 1px solid #dbdbdb;
+
+    .cols {
+      display: grid;
+      gap: 0;
+      grid-template-columns: repeat(12, 1fr);
+      height: 100%;
+      div.sidebar {
+        display: flex;
+        height: 100%;
+        grid-column: 1 / span 3;
+      }
+      aside {
+        display: block;
+        width: 100%;
+        border-right: 1px solid #dbdbdb;
+        padding: 80px 4rem 4rem 4rem;
+
+        h2 {
+          position: relative;
+          font-size: 70px;
+          margin: 0 0 2rem 0;
+          line-height: 1;
+          &:before {
+            content: '01.';
+            font-size: 30px;
+            position: absolute;
+            top: 7px;
+            left: -4rem;
+            color: $purple;
+          }
+        }
+
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style-type: none;
+          li {
+            color: lighten($gray, 20%);
+            @include mixins.font-global(500);
+            font-size: 16px;
+            line-height: 2rem;
+            margin-bottom: 5px;
+          }
+        }
+      }
+      .textBlock {
+        grid-column: 4 / span 9;
+        display: block;
+        padding: 90px 4rem 4rem 4rem;
+        p {
+          color: lighten($gray, 30%);
+          @include mixins.font-global(400);
+          line-height: 1.45em;
+          font-size: 34px;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}

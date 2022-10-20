@@ -1,0 +1,124 @@
+// Development
+@use '../scss/mixins';
+@import '../scss/variables.scss';
+
+.introSection {
+  display: flex;
+  width: 100vw;
+  height: auto;
+  min-height: 90vh;
+  background: $dark;
+  color: $white;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    @include mixins.container(xl);
+    padding: 0;
+
+    .cols {
+      display: grid;
+      gap: 0;
+      grid-template-columns: repeat(12, 1fr);
+      height: 100%;
+      .sidebar {
+        display: flex;
+        height: 100%;
+        grid-column: 1 / span 3;
+      }
+      aside {
+        display: block;
+        width: 100%;
+        border-right: 1px solid lighten($dark, 20%);
+        padding: 80px 4rem 4rem 4rem;
+
+        h2 {
+          position: relative;
+          font-size: 70px;
+          margin: 0 0 2rem 0;
+          line-height: 1;
+          &:before {
+            content: '02.';
+            font-size: 30px;
+            position: absolute;
+            top: 7px;
+            left: -4rem;
+            color: $purple;
+          }
+          &:nth-of-type(2):before {
+            content: '03.';
+          }
+        }
+
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style-type: none;
+          &:nth-of-type(1) {
+            margin-bottom: 2rem;
+          }
+          li {
+            color: lighten($gray, 20%);
+            @include mixins.font-global(500);
+            font-size: 16px;
+            line-height: 2rem;
+            margin-bottom: 5px;
+          }
+        }
+      }
+      .main {
+        grid-column: 4 / span 9;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); // grid-column: 4 / span 9;
+        gap: 0;
+        padding: 90px 4rem 0 4rem;
+        .textBlock {
+          display: block;
+          height: auto;
+          grid-column: 1 / span 2;
+
+          p {
+            color: lighten($gray, 40%);
+            @include mixins.font-global(400);
+            line-height: 1.45em;
+            font-size: 34px;
+            margin-bottom: 1rem;
+          }
+        }
+        .col {
+          display: block;
+          border-right: 1px solid lighten($dark, 20%);
+          .card {
+            display: block;
+            margin-bottom: 4rem;
+          }
+          .desc {
+            padding: 0 4rem 0 0;
+          }
+          + .col {
+            border-right: none;
+            .desc {
+              padding: 0 0 0 4rem;
+            }
+            h3 {
+              padding-left: 0rem;
+              margin-left: 4rem;
+            }
+          }
+          h3 {
+            margin: 0 0 2rem 0;
+            padding: 0 0 1rem 0;
+            font-size: 50px;
+            border-bottom: 1px solid lighten($dark, 20%);
+          }
+          p {
+            @include mixins.font-global(400);
+            line-height: 1.45em;
+            font-size: 18px;
+            color: lighten($gray, 40%);
+          }
+        }
+      }
+    }
+  }
+}
