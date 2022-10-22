@@ -9,7 +9,7 @@ interface Props {
   testimonial: Testimonial
 }
 
-const TestimonialCard = ({ testimonial }: Props) => {
+const Testimonial = ({ testimonial }: Props) => {
   const { id, authorImg, authorFirstName, authorLastName, authorPos, text } =
     testimonial
 
@@ -50,4 +50,4 @@ const TestimonialCard = ({ testimonial }: Props) => {
   )
 }
 
-export default TestimonialCard
+export default Testimonial

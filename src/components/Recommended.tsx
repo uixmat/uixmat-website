@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { cursorHandlerAdd, cursorHandlerRemove } from '../utility/util'
 import testimonials from '../utility/testimonials'
-import TestimonialCard from './common/testimonialCard'
+import Testimonial from './common/Testimonial'
 import Arrow from '../assets/arrow.svg'
 import styles from './Recommended.module.scss'
 
@@ -63,10 +63,7 @@ const Recommended = () => {
               {testimonials
                 .filter((testimonial) => testimonial.id === index)
                 .map((testimonial) => (
-                  <TestimonialCard
-                    key={testimonial.id}
-                    testimonial={testimonial}
-                  />
+                  <Testimonial key={testimonial.id} testimonial={testimonial} />
                 ))}
             </AnimatePresence>
           </div>
