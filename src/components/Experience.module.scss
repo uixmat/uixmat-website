@@ -95,6 +95,16 @@
         padding: 0 0 1.5rem 0;
         font-size: 50px;
         border-bottom: 1px solid #dbdbdb;
+        perspective: 1000px;
+        div.parent {
+          display: inline-block;
+          perspective: 1000px;
+          font-family: inherit;
+          div {
+            display: inline-block;
+            font-family: inherit;
+          }
+        }
       }
       h4 {
         margin: 0 0 1.5rem 0;
