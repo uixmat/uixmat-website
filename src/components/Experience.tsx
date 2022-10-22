@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
-import { useInView } from 'react-intersection-observer'
-import { motion, useAnimation } from 'framer-motion'
+import React, { useEffect, useRef } from 'react'
+import { motion, useAnimation, useInView } from 'framer-motion'
 import { cursorHandlerAdd, cursorHandlerRemove } from '../utility/util'
 import Image from 'next/image'
 import styles from './Experience.module.scss'
@@ -8,9 +7,8 @@ import styles from './Experience.module.scss'
 const Experience = () => {
   const heading3d = useAnimation()
 
-  const { ref: ref1, inView: inView1 } = useInView({
-    threshold: 0.8,
-  })
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
 
   const rotateIn = {
     hidden: {
@@ -32,18 +30,18 @@ const Experience = () => {
   }
 
   useEffect(() => {
-    if (inView1) {
+    if (isInView) {
       heading3d.start('visible')
     }
-    if (!inView1) {
+    if (!isInView) {
       heading3d.start('hidden')
     }
-  }, [heading3d, inView1])
+  }, [heading3d, isInView])
 
   return (
     <div data-scroll-section className={styles.experienceSection}>
       <div className={styles.container}>
-        <h2 className={styles.heading} data-scroll ref={ref1}>
+        <h2 className={styles.heading} data-scroll ref={ref}>
           <div className={styles.parent}>
             <motion.div
               initial="hidden"

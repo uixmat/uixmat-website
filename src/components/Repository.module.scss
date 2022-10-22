@@ -6,8 +6,8 @@
   display: flex;
   width: 100vw;
   height: auto;
-  min-height: 60vh;
-  background: $dark;
+  min-height: 70vh;
+  background: lighten($dark, 3%);
   color: $white;
   padding-top: 100px;
 
@@ -20,7 +20,7 @@
 
   .heading {
     position: relative;
-    font-size: 120px;
+    font-size: 80px;
     margin: 0 0 2rem 4rem;
     line-height: 1;
     color: $white;
@@ -36,36 +36,61 @@
 
   .subHeading {
     display: block;
-    margin: 0 0 2rem 4rem;
-    font-size: 40px;
+    margin: 0 0 4rem 4rem;
+    font-size: 32px;
   }
 
   .cols {
     display: grid;
     gap: 0;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     height: 100%;
     border-top: 1px solid lighten($dark, 20%);
+    margin-bottom: 4rem;
 
-    .sidebar {
-      grid-column: 1 / span 3;
-    }
-
-    .gitGrid {
-      grid-column: 4 / span 9;
-      border-left: 1px solid lighten($dark, 20%);
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      div {
-        display: flex;
-        flex-direction: column;
-        aspect-ratio: 1 / 1;
-        border-right: 1px solid lighten($dark, 20%);
-        border-bottom: 1px solid lighten($dark, 20%);
-        &:nth-child(3n + 3) {
-          border-right: none;
-        }
+    .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 1 / 1;
+      border-right: 1px solid lighten($dark, 20%);
+      border-bottom: 1px solid lighten($dark, 20%);
+      background: radial-gradient(
+        ellipse at bottom left,
+        lighten($dark, 1%) 0%,
+        lighten($dark, 3%) 80%
+      );
+      padding: 2rem;
+      text-decoration: none;
+      &:first-child {
+        background: transparent;
+      }
+      &:nth-child(4n + 4) {
+        border-right: none;
+      }
+      big {
+        @include mixins.font-heading(700);
+        font-size: 120px;
+        line-height: 1;
+        color: $white;
+      }
+      span {
+        @include mixins.font-global(400);
+        line-height: 1.45em;
+        font-size: 18px;
+        color: lighten($gray, 30%);
+        margin: 0;
+      }
+      input[type='url'] {
+        background: $dark;
+        width: 100%;
+        outline: none;
+        border: 1px solid rgba(lighten($dark, 40%), 0.5);
+        padding: 1rem;
+        margin-top: 1rem;
+        color: lighten($dark, 40%);
+        cursor: none !important;
       }
     }
   }

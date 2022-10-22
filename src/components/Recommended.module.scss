@@ -38,12 +38,85 @@
     }
   }
 
+  .recommended {
+    display: grid;
+    gap: 0;
+    grid-template-columns: repeat(12, 1fr);
+    border-top: 1px solid lighten($dark, 20%);
+  }
+
+  .controls {
+    grid-column: 1 / span 3;
+    border-right: 1px solid lighten($dark, 20%);
+    .next,
+    .prev {
+      display: inline-flex;
+      width: 50%;
+      aspect-ratio: 1 / 1;
+      color: $dark;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-bottom: 1px solid lighten($dark, 20%);
+      overflow: hidden;
+      background: radial-gradient(
+        ellipse at bottom left,
+        lighten($dark, 0%) 0%,
+        lighten($dark, 5%) 90%
+      );
+      &.prev {
+        border-left: 1px solid lighten($dark, 20%);
+        background: radial-gradient(
+          ellipse at bottom left,
+          lighten($dark, 0%) 0%,
+          lighten($dark, 5%) 80%
+        );
+        div {
+          transform: rotate(180deg);
+        }
+      }
+      div {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        transition: all 0.25s ease-in;
+      }
+      &:hover {
+        span {
+          animation: example forwards 0.5s ease-out;
+        }
+      }
+      @keyframes example {
+        0% {
+          transform: translateX(0) translateY(0px);
+          opacity: 1;
+        }
+        50% {
+          transform: translateX(50px) translateY(-50px);
+          opacity: 0;
+        }
+        51% {
+          transform: translateX(-50px) translateY(50px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0px) translateY(0px);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
   .comment {
     display: block;
+    position: relative;
+    grid-column: 4 / span 9;
     width: 100%;
-    border-top: 1px solid lighten($dark, 20%);
-    padding: 80px 4rem;
-
+    padding: 80px 0 80px 4rem;
+    height: 700px;
     blockquote {
       margin: 0;
       padding: 0;
@@ -51,7 +124,6 @@
         float: left;
         width: 200px;
         height: 80px;
-        font-size: 100px;
       }
       big {
         font-size: 60px;

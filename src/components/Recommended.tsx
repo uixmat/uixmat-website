@@ -1,41 +1,75 @@
+import { useState, useEffect } from 'react'
+import { AnimatePresence } from 'framer-motion'
 import { cursorHandlerAdd, cursorHandlerRemove } from '../utility/util'
-import Image from 'next/image'
+import testimonials from '../utility/testimonials'
+import TestimonialCard from './common/testimonialCard'
+import Arrow from '../assets/arrow.svg'
 import styles from './Recommended.module.scss'
 
-function Recommended() {
+const Recommended = () => {
+  const [index, setIndex] = useState(0)
+  const handleClick = () => {
+    if (index === testimonials.length - 1) {
+      setIndex(0)
+    } else {
+      setIndex(index + 1)
+    }
+  }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (index === testimonials.length - 1) {
+        setIndex(0)
+      } else {
+        setIndex(index + 1)
+      }
+    }, 5000)
+    return () => clearTimeout(timer)
+  }, [index])
+
   return (
-    <div
-      data-scroll-section
-      className={styles.recSection}
-      onMouseEnter={() => cursorHandlerAdd('thumb')}
-      onMouseLeave={() => cursorHandlerRemove('thumb')}
-    >
+    <div data-scroll-section className={styles.recSection}>
       <div className={styles.container}>
         <h2 className={styles.heading}>Recommended</h2>
-        <div className={styles.comment}>
-          <blockquote>
-            <big>
-              <span>&quot;</span>
-              Matt&rsquo;s level of professionalism along with his knowledge
-              &amp; experience make working with him a complete joy!
-            </big>
-            <div className={styles.author}>
-              <div className={styles.authorImage}>
-                <Image
-                  src="/images/fredrikweisner.jpeg"
-                  height={150}
-                  width={150}
-                  alt="Fredrik Weisner - DRKN"
-                />
-              </div>
-              <div className={styles.authorMeta}>
-                <h5>
-                  Fredrik <i>Weisner</i>
-                </h5>
-                <p>DRKN Owner &amp; Co-Founder</p>
+        <div className={styles.recommended}>
+          <div className={styles.controls}>
+            <div
+              className={styles.next}
+              onClick={handleClick}
+              onMouseEnter={() => cursorHandlerAdd('hidden')}
+              onMouseLeave={() => cursorHandlerRemove('hidden')}
+            >
+              <div>
+                <span>
+                  <Arrow />
+                </span>
               </div>
             </div>
-          </blockquote>
+            <div
+              className={styles.prev}
+              onClick={handleClick}
+              onMouseEnter={() => cursorHandlerAdd('hidden')}
+              onMouseLeave={() => cursorHandlerRemove('hidden')}
+            >
+              <div>
+                <span>
+                  <Arrow />
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className={styles.comment} data-key={index}>
+            <AnimatePresence exitBeforeEnter>
+              {testimonials
+                .filter((testimonial) => testimonial.id === index)
+                .map((testimonial) => (
+                  <TestimonialCard
+                    key={testimonial.id}
+                    testimonial={testimonial}
+                  />
+                ))}
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </div>
