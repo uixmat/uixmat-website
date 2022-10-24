@@ -6,7 +6,7 @@
   display: flex;
   width: 100vw;
   height: auto;
-  min-height: 70vh;
+  min-height: 100vh;
   background: lighten($dark, 3%);
   color: $white;
   padding-top: 100px;
@@ -88,9 +88,9 @@
         outline: none;
         border: 1px solid rgba(lighten($dark, 40%), 0.5);
         padding: 1rem;
-        margin-top: 1rem;
-        color: lighten($dark, 40%);
-        cursor: none !important;
+        margin-top: 2rem;
+        color: lighten($gray, 40%);
+        cursor: pointer;
       }
     }
   }

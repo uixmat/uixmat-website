@@ -52,6 +52,55 @@
 
     .sidebar {
       grid-column: 1 / span 3;
+      height: 100%;
+      padding-top: 4rem;
+
+      // aside {}
+
+      ul {
+        width: 100%;
+        margin: 0;
+        padding: 0 0 8rem 4rem;
+        list-style-type: none;
+        li {
+          @include mixins.font-global(700);
+          font-size: 20px;
+          line-height: 2rem;
+          margin-bottom: 5px;
+          &:last-child {
+            margin: 0;
+          }
+          a {
+            display: block;
+            position: relative;
+            text-decoration: none;
+            color: lighten($gray, 20%);
+            transition: all 1s cubic-bezier(0.18, 0.63, 0.28, 0.9);
+            &:before {
+              display: inline-flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              position: absolute;
+              left: -15px;
+              content: '⭥';
+              width: 30px;
+              height: 30px;
+              opacity: 0;
+              transition: all 0.18s ease-in-out;
+              transition-delay: 0.1s;
+            }
+            &:hover {
+              color: $blue;
+              padding-left: 40px;
+              &:before {
+                left: 0;
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
     }
 
     .projects {
@@ -75,6 +124,7 @@
         .projectArtwork {
           padding-left: 4rem;
           padding-top: 4rem;
+          padding-bottom: 2rem;
           border-left: 1px solid #dbdbdb;
         }
         &:nth-child(2n + 2) {
@@ -87,6 +137,13 @@
             position: relative;
             border-left: none;
             border-right: 1px solid #dbdbdb;
+          }
+        }
+        &:hover {
+          .artwork {
+            img {
+              transform: scale(1.1);
+            }
           }
         }
       }
@@ -149,7 +206,7 @@
         justify-content: center;
         position: relative;
         width: 100%;
-        aspect-ratio: 1 / 1.1;
+        aspect-ratio: 1 / 1.2;
         background: linear-gradient(
           45deg,
           rgba(126, 10, 52, 1) 0%,
@@ -157,10 +214,7 @@
         );
         overflow: hidden;
         img {
-          display: block;
-          width: auto;
-          height: auto;
-          border: 2px solid red;
+          transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
         }
       }
     }

@@ -53,18 +53,26 @@ const Experience = () => {
           </div>
         </h2>
         <div className={styles.cols}>
-          <div className={styles.sidebar}>
-            <aside>
-              <ul>
+          <div className={styles.sidebar} id="xp-side">
+            <aside data-scroll data-scroll-sticky data-scroll-target="#xp-side">
+              <ul className={styles.sidelist}>
                 {projects.map((project) => (
-                  <li key={project.id}>{project.name}</li>
+                  <li key={project.id} data-scroll>
+                    <a
+                      href={`#project-${project.id}`}
+                      data-scroll-to
+                      rel="nofollow"
+                    >
+                      {project.name}
+                    </a>
+                  </li>
                 ))}
               </ul>
             </aside>
           </div>
           <div className={styles.projects}>
             {projects.map((project) => (
-              <Project key={project.id} project={project} />
+              <Project key={`${project.id}`} project={project} />
             ))}
           </div>
         </div>

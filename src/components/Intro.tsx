@@ -2,7 +2,7 @@ import styles from './Intro.module.scss'
 
 function Intro() {
   return (
-    <div data-scroll-section className={styles.introSection}>
+    <div data-scroll-section className={styles.introSection} id="intro">
       <div className={styles.container}>
         <div className={styles.cols}>
           <div className={styles.sidebar}>

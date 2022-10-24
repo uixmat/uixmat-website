@@ -1,3 +1,145 @@
 // Footer
 @use '../scss/mixins';
 @import '../scss/variables.scss';
+
+.footerSection {
+  display: flex;
+  width: 100vw;
+  height: auto;
+  min-height: 60vh;
+  background-color: $dark;
+  background: radial-gradient(
+    ellipse at bottom left,
+    lighten($dark, 1%) 0%,
+    lighten($dark, 3%) 80%
+  );
+  color: $white;
+  padding-top: 100px;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    @include mixins.container(xl);
+    padding: 0;
+  }
+
+  .connections {
+    display: grid;
+    gap: 0;
+    grid-template-columns: repeat(4, 1fr);
+    height: 100%;
+    border-top: 1px solid lighten($dark, 20%);
+    margin-bottom: 4rem;
+
+    a {
+      display: inline-flex;
+      aspect-ratio: 2/1;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-decoration: none;
+      border-right: 1px solid lighten($dark, 20%);
+      border-bottom: 1px solid lighten($dark, 20%);
+      overflow: hidden; // Not needed
+      @include mixins.font-global(400);
+      line-height: 1.45em;
+      font-size: 26px;
+      color: lighten($gray, 30%);
+      transition: all 0.18s ease-in-out;
+      background: radial-gradient(
+        ellipse at bottom left,
+        lighten($dark, 1%) 0%,
+        lighten($dark, 3%) 80%
+      );
+      &:last-child {
+        border-right: none;
+      }
+      span {
+        display: inline-flex;
+        position: relative;
+        align-items: center;
+        transition: all 1s cubic-bezier(0.18, 0.63, 0.28, 0.9);
+        .icon {
+          display: inline-block;
+          position: absolute;
+          left: 0;
+          opacity: 0;
+          font-size: 32px;
+          transition: all 0.01s ease-in-out;
+        }
+      }
+      &:hover {
+        color: $white;
+        span {
+          padding-left: 40px;
+          .icon {
+            left: 0;
+            opacity: 1;
+            transition: all 0.18s ease-out;
+            color: lighten($purple, 20%);
+          }
+        }
+      }
+    }
+  }
+
+  .thanks {
+    display: block;
+    width: 100%;
+    margin-bottom: 4rem;
+    .row {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      white-space: nowrap;
+      &:nth-child(2) {
+        opacity: 0.6;
+      }
+      &:last-child {
+        opacity: 1;
+      }
+      span {
+        @include mixins.font-heading(700);
+        font-size: 80px;
+        line-height: 80px;
+        margin: 0 8px;
+        &.purple {
+          color: $purple;
+        }
+        &.outline {
+          -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+          -webkit-text-stroke-width: 2px;
+          -webkit-text-stroke-color: $purple;
+        }
+      }
+    }
+  }
+
+  .bottomCols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 4rem;
+    @include mixins.font-global(400);
+    line-height: 1.45em;
+    font-size: 16px;
+    color: lighten($gray, 20%);
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.18s ease-in-out;
+      &:hover {
+        color: $white;
+      }
+    }
+    div {
+      &:nth-child(2) {
+        text-align: center;
+      }
+      &:last-child {
+        text-align: right;
+      }
+    }
+  }
+}

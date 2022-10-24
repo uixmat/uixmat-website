@@ -6,7 +6,7 @@
   display: flex;
   width: 100vw;
   height: auto;
-  min-height: 60vh;
+  min-height: 100vh;
   background: $dark;
   color: $white;
   padding-top: 100px;
@@ -43,6 +43,7 @@
     gap: 0;
     grid-template-columns: repeat(12, 1fr);
     border-top: 1px solid lighten($dark, 20%);
+    height: 100%;
   }
 
   .controls {

@@ -12,23 +12,45 @@ interface Props {
 const Project = ({ project }: Props) => {
   const { id, url, name, description, info, image } = project
   const ref = useRef(null)
-  const heading3d = useAnimation()
-  const isInView = useInView(ref, { margin: '80px 0px 0px 0px' })
+  const projectInfo = useAnimation()
+  const isInView = useInView(ref, { amount: 0.25, once: true })
 
-  const rotateIn = {
-    hidden: {
-      opacity: 0,
-      rotateX: -90,
+  const variants = {
+    initial: { opacity: 0 },
+    enter: {
+      opacity: 1,
       transition: {
-        duration: 0.6,
+        when: 'beforeChildren',
+        staggerChildren: 0.3,
+      },
+    },
+  }
+  const fadeUp = {
+    initial: {
+      opacity: 0,
+    },
+    enter: {
+      opacity: 1,
+      transition: {
+        duration: 0.4,
         ease: 'easeInOut',
       },
     },
-    visible: {
+  }
+  const rotateIn = {
+    initial: {
+      opacity: 0,
+      rotateX: -90,
+      transition: {
+        duration: 0.4,
+        ease: 'easeInOut',
+      },
+    },
+    enter: {
       opacity: 1,
       rotateX: 0,
       transition: {
-        duration: 0.8,
+        duration: 0.4,
         ease: 'easeInOut',
       },
     },
@@ -36,12 +58,12 @@ const Project = ({ project }: Props) => {
 
   useEffect(() => {
     if (isInView) {
-      heading3d.start('visible')
+      projectInfo.start('enter')
     }
     if (!isInView) {
-      heading3d.start('hidden')
+      projectInfo.start('initial')
     }
-  }, [heading3d, isInView])
+  }, [projectInfo, isInView])
 
   return (
     <a
@@ -53,23 +75,25 @@ const Project = ({ project }: Props) => {
       onMouseLeave={() => cursorHandlerRemove('project')}
       key={id}
       ref={ref}
+      id={`project-${id}`}
     >
-      <div className={styles.projectInfo}>
+      <motion.div
+        className={styles.projectInfo}
+        initial="hidden"
+        animate={projectInfo}
+        variants={variants}
+      >
         <h3>
           <div className={styles.parent}>
-            <motion.div
-              initial="hidden"
-              animate={heading3d}
-              variants={rotateIn}
-            >
-              {name}
-            </motion.div>
+            <motion.div variants={rotateIn}>{name}</motion.div>
           </div>
         </h3>
-        <p dangerouslySetInnerHTML={{ __html: description }}></p>
-        <h4>Project info</h4>
-        <div dangerouslySetInnerHTML={{ __html: info }}></div>
-      </div>
+        <motion.div variants={fadeUp}>
+          <p dangerouslySetInnerHTML={{ __html: description }}></p>
+          <h4>Project info</h4>
+          <div dangerouslySetInnerHTML={{ __html: info }}></div>
+        </motion.div>
+      </motion.div>
       <div className={styles.projectArtwork}>
         <div className={styles.artwork}>
           <Image

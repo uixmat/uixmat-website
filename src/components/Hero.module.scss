@@ -5,7 +5,7 @@
   display: flex;
   width: 100vw;
   height: auto;
-  min-height: 90vh;
+  min-height: 100vh;
   background: $dark;
   color: $white;
 
@@ -20,14 +20,64 @@
     display: block;
   }
 
+  .scrollDown {
+    display: inline-block;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    margin-left: -30px;
+    &:before {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      content: 'scroll';
+      color: white;
+      font-size: 14px;
+      position: absolute;
+      top: -10px;
+      left: 0;
+      width: 100%;
+      text-transform: uppercase;
+      @include mixins.font-heading(600);
+      opacity: 0;
+      transition: all 0.75s cubic-bezier(0.18, 0.63, 0.28, 0.9);
+    }
+    &:hover {
+      &:before {
+        opacity: 1;
+        top: -25px;
+        color: $blue;
+      }
+    }
+  }
+  .arrowDown {
+    animation: bounce 1s infinite;
+  }
+
+  @keyframes bounce {
+    0% {
+      opacity: 1;
+      transform: scale(0.6) translate3d(0, 0, -20px);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(0.7) translate3d(0, -5px, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(0.6) translate3d(0, 0, -20px);
+    }
+  }
+
   .heroText {
-    display: block;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    // position: relative;
     .brain {
       display: block;
       width: 600px;
       position: absolute;
-      right: 0;
+      right: 10vw;
       top: 50%;
       transform: translateY(-50%);
       z-index: -1;
@@ -37,13 +87,17 @@
       font-size: 148px;
       line-height: 1;
       margin: 0;
+      opacity: 1;
       .shadow {
         @include mixins.text-gradient-vt($white, darken($white, 40%));
       }
       .stroke {
         -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
         -webkit-text-stroke-width: 3px;
-        -webkit-text-stroke-color: $blue;
+        -webkit-text-stroke-color: $purple;
+      }
+      .purple {
+        color: $purple;
       }
       &.creative {
         margin-left: 1rem; // Offset margin of data-scroll-speed
@@ -70,7 +124,6 @@
         font-style: italic;
         font-size: 100px;
         @include mixins.text-gradient-hz(rgba($blue, 50%), $dark);
-        // opacity: 0.3;
       }
     }
   }

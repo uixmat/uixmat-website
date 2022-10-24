@@ -1,6 +1,4 @@
-import * as React from 'react'
 import { motion, useAnimation } from 'framer-motion'
-import { cursorHandlerAdd, cursorHandlerRemove } from '../utility/util'
 import Brain from '../assets/brain.svg'
 import styles from './Hero.module.scss'
 
@@ -42,6 +40,23 @@ const Hero = (): JSX.Element => {
     },
   }
 
+  const arrow = {
+    initial: {
+      opacity: 0,
+      pathLength: 0,
+      fill: 'rgba(255, 255, 255, 0)',
+    },
+    enter: {
+      opacity: 1,
+      pathLength: 1,
+      fill: 'rgba(255, 255, 255, 1)',
+      transition: {
+        duration: 0.8,
+        ease: [0.18, 0.63, 0.28, 0.9],
+      },
+    },
+  }
+
   const startAnimation = async () => {
     await HeroLine.start('enter')
   }
@@ -49,12 +64,7 @@ const Hero = (): JSX.Element => {
   startAnimation()
 
   return (
-    <div
-      data-scroll-section
-      className={styles.heroSection}
-      onMouseEnter={() => cursorHandlerAdd('hidden')}
-      onMouseLeave={() => cursorHandlerRemove('hidden')}
-    >
+    <div data-scroll-section className={styles.heroSection}>
       <div className={styles.container}>
         <motion.div
           className={styles.heroText}
@@ -135,34 +145,70 @@ const Hero = (): JSX.Element => {
             data-scroll-speed="2"
           >
             <motion.b variants={textIn}>&amp;</motion.b>
-            <motion.i variants={textIn} className={styles.shadow}>
+            <motion.i variants={textIn} className={styles.purple}>
               D
             </motion.i>
-            <motion.i variants={textIn} className={styles.shadow}>
+            <motion.i variants={textIn} className={styles.purple}>
               e
             </motion.i>
-            <motion.i variants={textIn} className={styles.shadow}>
+            <motion.i variants={textIn} className={styles.purple}>
               s
             </motion.i>
-            <motion.i variants={textIn} className={styles.shadow}>
+            <motion.i variants={textIn} className={styles.purple}>
               i
             </motion.i>
-            <motion.i variants={textIn} className={styles.shadow}>
+            <motion.i variants={textIn} className={styles.purple}>
               g
             </motion.i>
-            <motion.i variants={textIn} className={styles.shadow}>
+            <motion.i variants={textIn} className={styles.purple}>
               n
             </motion.i>
-            <motion.i variants={textIn} className={styles.shadow}>
+            <motion.i variants={textIn} className={styles.purple}>
               e
             </motion.i>
-            <motion.i variants={textIn} className={styles.shadow}>
+            <motion.i variants={textIn} className={styles.purple}>
               r
             </motion.i>
           </div>
           <motion.div className={styles.brain} variants={brain}>
             <Brain />
           </motion.div>
+          <a
+            href="#intro"
+            data-scroll-to
+            rel="nofollow"
+            className={styles.scrollDown}
+          >
+            <svg
+              className={styles.arrowDown}
+              width="84"
+              height="44"
+              viewBox="0 0 84.243 44.242"
+            >
+              <g transform="translate(-97.379 -6157.379)">
+                <motion.line
+                  x2="40"
+                  y2="40"
+                  transform="translate(99.5 6159.5)"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-linecap="square"
+                  stroke-width="3"
+                  variants={arrow}
+                />
+                <motion.line
+                  x1="40"
+                  y2="40"
+                  transform="translate(139.5 6159.5)"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-linecap="square"
+                  stroke-width="3"
+                  variants={arrow}
+                />
+              </g>
+            </svg>
+          </a>
         </motion.div>
       </div>
     </div>

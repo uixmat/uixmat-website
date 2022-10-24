@@ -22,7 +22,6 @@ function Repository() {
   if (isLoading) return <p>Loading...</p>
   if (!data) return <p>No repo data</p>
 
-  // Input
   const handleFocus = (event: any) => {
     setIsCopied((current) => !current)
     event.target.select()
@@ -30,7 +29,6 @@ function Repository() {
   }
   const Input = (props: any) => (
     <input
-      // className={props.className}
       className={isCopied ? 'copied' : ''}
       type="url"
       value={props.value}
@@ -44,7 +42,7 @@ function Repository() {
   return (
     <div data-scroll-section className={styles.repoSection}>
       <div className={styles.container}>
-        <h2 className={styles.heading}>Use This Project</h2>
+        <h2 className={styles.heading}>Tryout my site</h2>
         <p className={styles.subHeading}>
           This project is open source so that anyone who wants to can take a
           look at how it&rsquo;s built, use it for their own project or track

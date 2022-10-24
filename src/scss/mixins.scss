@@ -3,9 +3,6 @@
 
 // Fonts
 @mixin font-heading($weight: 600) {
-  // font-family: neue-haas-grotesk-display, sans-serif;
-  // font-weight: $weight; //600, 700
-  // font-style: normal;
   font-family: din-2014, sans-serif;
   font-weight: $weight;
   font-style: normal;

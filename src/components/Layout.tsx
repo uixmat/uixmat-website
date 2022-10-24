@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import CookieConsent from 'react-cookie-consent'
@@ -35,13 +36,18 @@ const Layout: React.FunctionComponent<Props> = ({
     }
   })
 
+  const { asPath } = useRouter()
+
   return (
     <LocomotiveScrollProvider
       options={{
         smooth: true,
       }}
-      watch={[]}
+      watch={[asPath]}
       containerRef={containerRef}
+      onLocationChange={(scroll: any) =>
+        scroll.scrollTo(0, { duration: 0, disableLerp: true })
+      }
     >
       <Head>
         <title>{title}</title>
