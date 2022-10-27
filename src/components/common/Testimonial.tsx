@@ -10,15 +10,8 @@ interface Props {
 }
 
 const Testimonial = ({ testimonial }: Props) => {
-  const {
-    id,
-    authorImg,
-    authorBrand,
-    authorFirstName,
-    authorLastName,
-    authorPos,
-    text,
-  } = testimonial
+  const { id, authorImg, authorFirstName, authorLastName, authorPos, text } =
+    testimonial
 
   return (
     <motion.div
