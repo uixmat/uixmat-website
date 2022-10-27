@@ -1,6 +1,12 @@
-export function cursorHandlerAdd(cursorClassName) {
-  document.getElementById("cursor").classList.add(cursorClassName)
+const cursor = document.getElementById("cursor")
+
+export function cursorHandlerAdd(cursorClassName: any) {
+  if (cursor != null) {
+    cursor.classList.add(cursorClassName)
+  }
 }
-export function cursorHandlerRemove(cursorClassName) {
-  document.getElementById("cursor").classList.remove(cursorClassName)
+export function cursorHandlerRemove(cursorClassName: any) {
+  if (cursor != null) {
+    cursor.classList.remove(cursorClassName)
+  }
 }
