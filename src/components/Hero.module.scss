@@ -28,11 +28,14 @@
   }
 
   .scrollDown {
-    display: inline-block;
+    display: none;
     position: absolute;
     bottom: 2rem;
     left: 50%;
     margin-left: -30px;
+    @include mixins.breakpoint(sm) {
+      display: inline-block;
+    }
     &:before {
       display: inline-flex;
       align-items: center;
