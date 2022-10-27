@@ -2,34 +2,37 @@ import styles from './Skills.module.scss'
 
 function Skills() {
   return (
-    <div data-scroll-section className={styles.introSection}>
+    <div data-scroll-section className={styles.skillsSection}>
       <div className={styles.container}>
         <div className={styles.cols}>
           <div className={styles.sidebar}>
             <aside>
-              <h2>Dev.</h2>
-              <ul>
-                <li>JavaScript</li>
-                <li>React &amp; React Native</li>
-                <li>Swift</li>
-                <li>Typescript</li>
-                <li>ES6 &amp; a11y</li>
-                <li>Github</li>
-                <li>Storybook</li>
-                <li>PHP</li>
-                <li>Shopify</li>
-              </ul>
-              <h2>Design.</h2>
-              <ul>
-                <li>Adobe Xd</li>
-                <li>Adobe Ai</li>
-                <li>Adobe Ps</li>
-                <li>Adobe Ae</li>
-                <li>Adobe Id</li>
-                <li>Figma</li>
-                <li>Sketch</li>
-                <li>Framer</li>
-              </ul>
+              <div>
+                <h2>Dev</h2>
+                <ul>
+                  <li>JavaScript</li>
+                  <li>React</li>
+                  <li>React Native</li>
+                  <li>Typescript</li>
+                  <li>ES6 &amp; a11y</li>
+                  <li>Github</li>
+                  <li>Storybook</li>
+                  <li>Shopify</li>
+                </ul>
+              </div>
+              <div>
+                <h2>Design</h2>
+                <ul>
+                  <li>Adobe Xd</li>
+                  <li>Adobe Ai</li>
+                  <li>Adobe Ps</li>
+                  <li>Adobe Ae</li>
+                  <li>Adobe Id</li>
+                  <li>Figma</li>
+                  <li>Sketch</li>
+                  <li>Framer</li>
+                </ul>
+              </div>
             </aside>
           </div>
           <div className={styles.main}>

@@ -1,3 +1,4 @@
+// Hero
 @use '../scss/mixins';
 @import '../scss/variables.scss';
 
@@ -5,15 +6,21 @@
   display: flex;
   width: 100vw;
   height: auto;
-  min-height: 100vh;
+  min-height: calc(60vh);
+  padding-top: calc(20px + 2rem);
   background: $dark;
   color: $white;
+  @include mixins.breakpoint(sm) {
+    min-height: 100vh;
+    padding: 0;
+  }
 
   .container {
     display: flex;
     flex-direction: column;
-    @include mixins.container(xl);
     justify-content: center;
+    @include mixins.container(xl);
+    min-width: 100%;
   }
 
   .heroContent {
@@ -72,43 +79,61 @@
   .heroText {
     display: flex;
     flex-direction: column;
-    // position: relative;
     .brain {
       display: block;
       width: 600px;
       position: absolute;
       right: 10vw;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: -1;
+      top: 0;
+      transform: translateX(40%) scale(0.7) translateY(-35%);
+      @include mixins.breakpoint(sm) {
+        transform: translateY(-50%);
+        top: 50%;
+      }
     }
     div.text {
       display: block;
-      font-size: 148px;
+      font-size: 48px;
       line-height: 1;
       margin: 0;
       opacity: 1;
+      z-index: 5;
+      @include mixins.breakpoint(sm) {
+        font-size: 148px;
+      }
       .shadow {
         @include mixins.text-gradient-vt($white, darken($white, 40%));
       }
       .stroke {
-        -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
-        -webkit-text-stroke-width: 3px;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-width: 1.5px;
         -webkit-text-stroke-color: $purple;
+        @include mixins.breakpoint(sm) {
+          -webkit-text-stroke-width: 3px;
+        }
       }
       .purple {
         color: $purple;
       }
       &.creative {
-        margin-left: 1rem; // Offset margin of data-scroll-speed
+        margin-left: 0; // Offset margin of data-scroll-speed
         width: calc(100%);
+        @include mixins.breakpoint(sm) {
+          margin-left: 1rem;
+        }
       }
       &.developer {
-        margin: -25px 0 0 105px;
+        margin: 0 0 0 0;
+        @include mixins.breakpoint(sm) {
+          margin: -25px 0 0 105px;
+        }
       }
       &.designer {
-        margin: -25px 0 0 calc(-2rem + 205px); // Offset margin of data-scroll-speed
-        width: calc(100% - 205px);
+        margin: 0 0 0 0; // Offset margin of data-scroll-speed
+        width: calc(100%);
+        @include mixins.breakpoint(sm) {
+          margin: -25px 0 0 calc(-2rem + 205px);
+        }
       }
       i {
         position: relative;

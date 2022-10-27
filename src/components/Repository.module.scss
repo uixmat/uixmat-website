@@ -6,55 +6,71 @@
   display: flex;
   width: 100vw;
   height: auto;
-  min-height: 100vh;
+  min-height: 60vh;
   background: lighten($dark, 3%);
   color: $white;
-  padding-top: 100px;
+  padding-top: 3rem;
+  @include mixins.breakpoint(sm) {
+    min-height: 100vh;
+    padding-top: 100px;
+  }
 
   .container {
     display: flex;
     flex-direction: column;
     @include mixins.container(xl);
-    padding: 0;
   }
 
   .heading {
     position: relative;
-    font-size: 80px;
-    margin: 0 0 2rem 4rem;
+    font-size: 40px;
+    margin: 0 0 2rem 1rem;
     line-height: 1;
     color: $white;
+    @include mixins.breakpoint(sm) {
+      font-size: 80px;
+      margin: 0 0 2rem 4rem;
+    }
     &:before {
+      display: none;
       content: '06.';
       font-size: 30px;
       position: absolute;
       top: 10px;
       left: -4rem;
       color: $purple;
+      @include mixins.breakpoint(sm) {
+        display: block;
+      }
     }
   }
 
   .subHeading {
     display: block;
-    margin: 0 0 4rem 4rem;
-    font-size: 32px;
+    margin: 0 0 2rem 1rem;
+    font-size: 20px;
+    @include mixins.breakpoint(sm) {
+      font-size: 32px;
+      margin: 0 0 4rem 4rem;
+    }
   }
 
   .cols {
-    display: grid;
-    gap: 0;
-    grid-template-columns: repeat(4, 1fr);
-    height: 100%;
-    border-top: 1px solid lighten($dark, 20%);
+    display: block;
     margin-bottom: 4rem;
+    @include mixins.breakpoint(sm) {
+      display: grid;
+      gap: 0;
+      grid-template-columns: repeat(4, 1fr);
+      height: 100%;
+      border-top: 1px solid lighten($dark, 20%);
+    }
 
     .item {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      aspect-ratio: 1 / 1;
-      border-right: 1px solid lighten($dark, 20%);
       border-bottom: 1px solid lighten($dark, 20%);
       background: radial-gradient(
         ellipse at bottom left,
@@ -63,6 +79,10 @@
       );
       padding: 2rem;
       text-decoration: none;
+      @include mixins.breakpoint(sm) {
+        aspect-ratio: 1 / 1;
+        border-right: 1px solid lighten($dark, 20%);
+      }
       &:first-child {
         background: transparent;
       }
@@ -71,16 +91,22 @@
       }
       big {
         @include mixins.font-heading(700);
-        font-size: 120px;
+        font-size: 40px;
         line-height: 1;
         color: $white;
+        @include mixins.breakpoint(sm) {
+          font-size: 120px;
+        }
       }
       span {
         @include mixins.font-global(400);
         line-height: 1.45em;
-        font-size: 18px;
+        font-size: 16px;
         color: lighten($gray, 30%);
         margin: 0;
+        @include mixins.breakpoint(sm) {
+          font-size: 18px;
+        }
       }
       input[type='url'] {
         background: $dark;

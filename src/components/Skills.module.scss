@@ -1,8 +1,8 @@
-// Development
+// Skills
 @use '../scss/mixins';
 @import '../scss/variables.scss';
 
-.introSection {
+.skillsSection {
   display: flex;
   width: 100vw;
   height: auto;
@@ -14,36 +14,56 @@
     display: flex;
     flex-direction: column;
     @include mixins.container(xl);
-    padding: 0;
 
     .cols {
-      display: grid;
-      gap: 0;
-      grid-template-columns: repeat(12, 1fr);
-      height: 100%;
-      .sidebar {
-        display: flex;
+      display: block;
+      width: 100%;
+      @include mixins.breakpoint(sm) {
+        gap: 0;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
         height: 100%;
-        grid-column: 1 / span 3;
       }
-      aside {
+      .sidebar {
         display: block;
         width: 100%;
-        border-right: 1px solid lighten($dark, 20%);
-        padding: 80px 4rem 4rem 4rem;
+        @include mixins.breakpoint(sm) {
+          display: flex;
+          height: 100%;
+          grid-column: 1 / span 3;
+        }
+      }
+      aside {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        padding: 3rem 1rem 0 1rem;
+        @include mixins.breakpoint(sm) {
+          display: block;
+          border-right: 1px solid lighten($dark, 20%);
+          padding: 80px 4rem 4rem 4rem;
+        }
 
         h2 {
           position: relative;
-          font-size: 70px;
-          margin: 0 0 2rem 0;
+          font-size: 30px;
+          margin: 0 0 1rem 0;
           line-height: 1;
+          @include mixins.breakpoint(sm) {
+            font-size: 70px;
+            margin: 0 0 2rem 0;
+          }
           &:before {
+            display: none;
             content: '02.';
             font-size: 30px;
             position: absolute;
             top: 7px;
             left: -4rem;
             color: $purple;
+            @include mixins.breakpoint(sm) {
+              display: block;
+            }
           }
           &:nth-of-type(2):before {
             content: '03.';
@@ -60,18 +80,27 @@
           li {
             color: lighten($gray, 20%);
             @include mixins.font-global(500);
-            font-size: 16px;
-            line-height: 2rem;
+            font-size: 14px;
+            line-height: 1.45rem;
             margin-bottom: 5px;
+            @include mixins.breakpoint(sm) {
+              font-size: 16px;
+              line-height: 2rem;
+            }
           }
         }
       }
       .main {
-        grid-column: 4 / span 9;
         display: grid;
-        grid-template-columns: repeat(2, 1fr); // grid-column: 4 / span 9;
-        gap: 0;
-        padding: 90px 4rem 0 4rem;
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 1rem;
+        @include mixins.breakpoint(sm) {
+          gap: 0;
+          grid-column: 4 / span 9;
+          padding: 90px 4rem 0 4rem;
+        }
         .textBlock {
           display: block;
           height: auto;
@@ -81,41 +110,64 @@
             color: lighten($gray, 40%);
             @include mixins.font-global(400);
             line-height: 1.45em;
-            font-size: 34px;
+            font-size: 20px;
             margin-bottom: 1rem;
+            @include mixins.breakpoint(sm) {
+              font-size: 34px;
+            }
           }
         }
         .col {
           display: block;
-          border-right: 1px solid lighten($dark, 20%);
+          @include mixins.breakpoint(sm) {
+            border-right: 1px solid lighten($dark, 20%);
+          }
           .card {
             display: block;
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
+            @include mixins.breakpoint(sm) {
+              margin-bottom: 4rem;
+            }
           }
           .desc {
-            padding: 0 4rem 0 0;
+            padding: 0;
+            @include mixins.breakpoint(sm) {
+              padding: 0 4 rem 0 0;
+            }
           }
           + .col {
             border-right: none;
             .desc {
-              padding: 0 0 0 4rem;
+              padding: 0;
+              @include mixins.breakpoint(sm) {
+                padding: 0 0 0 4rem;
+              }
             }
             h3 {
               padding-left: 0rem;
-              margin-left: 4rem;
+              @include mixins.breakpoint(sm) {
+                margin-left: 4rem;
+              }
             }
           }
           h3 {
-            margin: 0 0 2rem 0;
+            margin: 0 0 1rem 0;
             padding: 0 0 1rem 0;
-            font-size: 50px;
+            font-size: 20px;
             border-bottom: 1px solid lighten($dark, 20%);
+            @include mixins.breakpoint(sm) {
+              margin: 0 0 2rem 0;
+              font-size: 50px;
+            }
           }
           p {
             @include mixins.font-global(400);
             line-height: 1.45em;
-            font-size: 18px;
+            font-size: 14px;
             color: lighten($gray, 40%);
+            @include mixins.breakpoint(sm) {
+              font-size: 18px;
+            }
           }
         }
       }

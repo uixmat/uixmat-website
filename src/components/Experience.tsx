@@ -6,7 +6,6 @@ import styles from './Experience.module.scss'
 
 const Experience = () => {
   const heading3d = useAnimation()
-
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 
@@ -54,7 +53,12 @@ const Experience = () => {
         </h2>
         <div className={styles.cols}>
           <div className={styles.sidebar} id="xp-side">
-            <aside data-scroll data-scroll-sticky data-scroll-target="#xp-side">
+            <aside
+              data-scroll
+              data-scroll-sticky
+              data-scroll-target="#xp-side"
+              data-scroll-offset="-60, 120"
+            >
               <ul className={styles.sidelist}>
                 {projects.map((project) => (
                   <li key={project.id} data-scroll>

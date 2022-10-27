@@ -6,28 +6,34 @@
   display: flex;
   width: 100vw;
   height: auto;
-  min-height: 100vh;
+  min-height: 65vh;
   background: $dark;
   color: $white;
-  padding-top: 100px;
+  padding-top: 3rem;
+  @include mixins.breakpoint(sm) {
+    padding-top: 100px;
+    min-height: 100vh;
+  }
 
   .container {
     display: flex;
     flex-direction: column;
     @include mixins.container(xl);
-    padding: 0;
   }
 
   .heading {
     position: relative;
-    font-size: 120px;
-    margin: 0 0 2rem 4rem;
+    font-size: 40px;
+    margin: 0 0 1rem 1rem;
     line-height: 1;
-    -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
-    -webkit-text-stroke-width: 3px;
-    -webkit-text-stroke-color: $blue;
+    perspective: 1000px;
+    @include mixins.breakpoint(sm) {
+      font-size: 120px;
+      margin: 0 0 2rem 4rem;
+    }
     &:before {
-      content: '05.';
+      display: none;
+      content: '04.';
       font-size: 30px;
       position: absolute;
       top: 10px;
@@ -35,20 +41,47 @@
       color: $white;
       -webkit-text-fill-color: $white;
       -webkit-text-stroke-width: 0px;
+      @include mixins.breakpoint(sm) {
+        display: block;
+      }
+    }
+    div.parent {
+      display: inline-block;
+      perspective: 1000px;
+      font-family: inherit;
+      div {
+        position: relative;
+        top: -4px;
+        display: inline-block;
+        font-family: inherit;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-width: 1.5px;
+        -webkit-text-stroke-color: $blue;
+        @include mixins.breakpoint(sm) {
+          -webkit-text-stroke-width: 3px;
+        }
+      }
     }
   }
 
   .recommended {
-    display: grid;
-    gap: 0;
-    grid-template-columns: repeat(12, 1fr);
-    border-top: 1px solid lighten($dark, 20%);
-    height: 100%;
+    display: block;
+    @include mixins.breakpoint(sm) {
+      display: grid;
+      gap: 0;
+      grid-template-columns: repeat(12, 1fr);
+      border-top: 1px solid lighten($dark, 20%);
+      height: 100%;
+    }
   }
 
   .controls {
+    display: none;
     grid-column: 1 / span 3;
     border-right: 1px solid lighten($dark, 20%);
+    @include mixins.breakpoint(sm) {
+      display: block;
+    }
     .next,
     .prev {
       display: inline-flex;
@@ -114,34 +147,63 @@
   .comment {
     display: block;
     position: relative;
-    grid-column: 4 / span 9;
     width: 100%;
-    padding: 80px 0 80px 4rem;
-    height: 700px;
+    padding: 1rem;
+    // height: 700px;
+    @include mixins.breakpoint(sm) {
+      grid-column: 4 / span 9;
+      padding: 80px 0 80px 4rem;
+      height: 700px;
+    }
     blockquote {
       margin: 0;
       padding: 0;
       span {
         float: left;
-        width: 200px;
-        height: 80px;
+        width: 60px;
+        height: 40px;
+        svg {
+          width: 30px;
+        }
+        @include mixins.breakpoint(sm) {
+          width: 200px;
+          height: 80px;
+          svg {
+            width: 70px;
+            height: auto;
+          }
+        }
       }
       big {
-        font-size: 60px;
+        font-size: 26px;
+        @include mixins.breakpoint(sm) {
+          font-size: 60px;
+        }
       }
     }
 
     .author {
       display: flex;
       flex-direction: row;
-      margin-left: 200px;
       margin-top: 2rem;
       align-items: center;
-      img {
-        border-radius: 50%;
+      @include mixins.breakpoint(sm) {
+        margin-left: 200px;
+      }
+      .authorImage {
+        width: 80px;
+        @include mixins.breakpoint(sm) {
+          width: auto;
+        }
+        img {
+          border-radius: 50%;
+        }
       }
       .authorMeta {
-        margin-left: 2rem;
+        margin-left: 1rem;
+        @include mixins.breakpoint(sm) {
+          margin-left: 2rem;
+        }
         h5 {
           font-size: 24px;
           line-height: 1;

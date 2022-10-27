@@ -3,7 +3,8 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
-import CookieConsent from 'react-cookie-consent'
+import Cross from '../../assets/cross.svg'
+import Header from './Header'
 
 interface Props {
   title?: string
@@ -59,6 +60,7 @@ const Layout: React.FunctionComponent<Props> = ({
       </Head>
 
       <div data-scroll-container ref={containerRef}>
+        <Header />
         {children}
       </div>
 
@@ -71,19 +73,6 @@ const Layout: React.FunctionComponent<Props> = ({
         }}
         transition={{ duration: 2 }}
       />
-
-      <CookieConsent
-        location="bottom"
-        buttonText="&times;"
-        acceptOnScroll={true}
-      >
-        <span>
-          🍪 This website uses cookies to enhance the user experience.{' '}
-          <a href="/privacy" target="_blank">
-            Read more
-          </a>
-        </span>
-      </CookieConsent>
     </LocomotiveScrollProvider>
   )
 }

@@ -9,43 +9,61 @@
   min-height: 70vh;
   background: $white;
   color: $dark;
-  padding-top: 100px;
+  padding-top: 3rem;
+  @include mixins.breakpoint(sm) {
+    padding-top: 100px;
+  }
 
   .container {
     display: flex;
     flex-direction: column;
     @include mixins.container(xl);
-    padding: 0;
-    border-top: 1px solid #dbdbdb;
+    @include mixins.breakpoint(sm) {
+      border-top: 1px solid #dbdbdb;
+    }
 
     .cols {
       display: grid;
       gap: 0;
-      grid-template-columns: repeat(12, 1fr);
+      grid-template-columns: repeat(1, 1fr);
       height: 100%;
+      @include mixins.breakpoint(sm) {
+        grid-template-columns: repeat(12, 1fr);
+      }
       div.sidebar {
         display: flex;
         height: 100%;
-        grid-column: 1 / span 3;
+        @include mixins.breakpoint(sm) {
+          grid-column: 1 / span 3;
+        }
       }
       aside {
         display: block;
         width: 100%;
-        border-right: 1px solid #dbdbdb;
-        padding: 80px 4rem 4rem 4rem;
-
+        padding: 1rem 1rem 0 1rem;
+        @include mixins.breakpoint(sm) {
+          border-right: 1px solid #dbdbdb;
+          padding: 80px 4rem 4rem 4rem;
+        }
         h2 {
           position: relative;
-          font-size: 70px;
+          font-size: 40px;
           margin: 0 0 2rem 0;
           line-height: 1;
+          @include mixins.breakpoint(sm) {
+            font-size: 70px;
+          }
           &:before {
+            display: none;
             content: '01.';
             font-size: 30px;
             position: absolute;
             top: 7px;
             left: -4rem;
             color: $purple;
+            @include mixins.breakpoint(sm) {
+              display: block;
+            }
           }
         }
 
@@ -63,15 +81,21 @@
         }
       }
       .textBlock {
-        grid-column: 4 / span 9;
         display: block;
-        padding: 90px 4rem 4rem 4rem;
+        padding: 1rem;
+        @include mixins.breakpoint(sm) {
+          padding: 90px 4rem 4rem 4rem;
+          grid-column: 4 / span 9;
+        }
         p {
           color: lighten($gray, 30%);
           @include mixins.font-global(400);
           line-height: 1.45em;
-          font-size: 34px;
           margin-bottom: 1rem;
+          font-size: 20px;
+          @include mixins.breakpoint(sm) {
+            font-size: 34px;
+          }
         }
       }
     }

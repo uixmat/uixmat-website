@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 
 //  Components
-import Layout from '../components/Layout'
+import Layout from '../components/common/Layout'
 import Hero from '../components/Hero'
 import Intro from '../components/Intro'
 import Skills from '../components/Skills'

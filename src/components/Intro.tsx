@@ -7,7 +7,7 @@ function Intro() {
         <div className={styles.cols}>
           <div className={styles.sidebar}>
             <aside>
-              <h2>Intro.</h2>
+              <h2>Intro</h2>
               <ul>
                 <li>🇬🇧 From Liverpool, England</li>
                 <li>🇧🇬 Based in Varna, Bulgaria</li>

@@ -6,40 +6,54 @@ import styles from './Footer.module.scss'
 const Footer = () => {
   return (
     <div data-scroll-section className={styles.footerSection}>
-      <div className={styles.container}>
-        <div className={styles.thanks}>
-          <div
-            className={styles.row}
-            data-scroll
-            data-scroll-direction="horizontal"
-            data-scroll-speed="1"
-          >
+      <div className={styles.thanks}>
+        <div
+          className={styles.row}
+          data-scroll
+          data-scroll-direction="horizontal"
+          data-scroll-speed="1"
+        >
+          <div className={styles.marquee}>
+            <span className={styles.white}>Благодаря за отделеното време</span>
+            <span className={styles.purple}>Thank you for visiting</span>
+            <span className={styles.outline}>Merci pour votre visite</span>
             <span className={styles.white}>Благодаря за отделеното време</span>
             <span className={styles.purple}>Thank you for visiting</span>
             <span className={styles.outline}>Merci pour votre visite</span>
           </div>
-          <div
-            className={styles.row}
-            data-scroll
-            data-scroll-direction="horizontal"
-            data-scroll-speed="-1"
-          >
+        </div>
+        <div
+          className={styles.row}
+          data-scroll
+          data-scroll-direction="horizontal"
+          data-scroll-speed="-1"
+        >
+          <div className={styles.marquee}>
+            <span className={styles.purple}>Благодаря за отделеното време</span>
+            <span className={styles.outline}>Merci pour votre visite</span>
+            <span className={styles.white}>Thank you for visiting</span>
             <span className={styles.purple}>Благодаря за отделеното време</span>
             <span className={styles.outline}>Merci pour votre visite</span>
             <span className={styles.white}>Thank you for visiting</span>
           </div>
-          <div
-            className={styles.row}
-            data-scroll
-            data-scroll-direction="horizontal"
-            data-scroll-speed="2"
-          >
+        </div>
+        <div
+          className={styles.row}
+          data-scroll
+          data-scroll-direction="horizontal"
+          data-scroll-speed="2"
+        >
+          <div className={styles.marquee}>
+            <span className={styles.outline}>Merci pour votre visite</span>
+            <span className={styles.white}>Благодаря за отделеното време</span>
+            <span className={styles.purple}>Thank you for visiting</span>
             <span className={styles.outline}>Merci pour votre visite</span>
             <span className={styles.white}>Благодаря за отделеното време</span>
             <span className={styles.purple}>Thank you for visiting</span>
           </div>
         </div>
-
+      </div>
+      <div className={styles.container}>
         <div className={styles.connections}>
           <a href="https://twitter.com" rel="noreferrer" target="_blank">
             <span>
