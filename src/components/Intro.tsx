@@ -24,9 +24,9 @@ function Intro() {
             </p>
             <p>
               A lifelong gamer and football fan hailing from Liverpool, England
-              living on the Black Sea coast in Varna, Bulgaria. You'll find me
-              on the field playing for watching football when I'm not playing
-              video games.
+              living on the Black Sea coast in Varna, Bulgaria. You&apos;ll find
+              me on the field playing for watching football when I&apos;m not
+              playing video games.
             </p>
           </div>
         </div>
