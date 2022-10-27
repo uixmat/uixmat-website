@@ -1,5 +1,4 @@
 const cursor = document.getElementById("cursor")
-
 export function cursorHandlerAdd(cursorClassName: any) {
   if (cursor != null) {
     cursor.classList.add(cursorClassName)
