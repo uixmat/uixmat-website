@@ -35,8 +35,8 @@ function Error404() {
     },
   }
 
-  const startAnimation = async () => {
-    await blob.start('enter')
+  const startAnimation = () => {
+    blob.start('enter')
   }
   startAnimation()
 

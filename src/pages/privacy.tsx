@@ -44,7 +44,7 @@ function Privacy() {
       <div data-scroll-container ref={containerRef}>
         <motion.div
           data-scroll-section
-          className={styles.privacyPage}
+          className={styles.genericPage}
           variants={variants}
           initial="initial"
           animate={blob}
@@ -54,9 +54,11 @@ function Privacy() {
               <Blob />
             </motion.div>
 
-            <motion.div className={styles.privacy} variants={fadeIn}>
+            <motion.div className={styles.text} variants={fadeIn}>
               <h1>No tracking here</h1>
             </motion.div>
+
+            <div className={styles.void} />
           </div>
         </motion.div>
       </div>
