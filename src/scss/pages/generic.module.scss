@@ -1,14 +1,14 @@
-// Privacy
+// Generic Pages
 @use '../mixins';
 @import '../variables.scss';
 
-.privacyPage {
+.genericPage {
   display: flex;
   width: 100vw;
   height: 100vh;
   align-items: center;
   justify-content: center;
-  .privacy {
+  .text {
     display: block;
     position: relative;
     width: 100%;

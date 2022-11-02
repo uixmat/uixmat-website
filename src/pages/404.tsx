@@ -4,7 +4,7 @@ import Layout from '../components/common/Layout'
 import Blob from '../components/common/Blob'
 import styles from '../scss/pages/generic.module.scss'
 
-function Privacy() {
+function Error404() {
   const containerRef = useRef(null)
   const blob = useAnimation()
 
@@ -40,11 +40,11 @@ function Privacy() {
   startAnimation()
 
   return (
-    <Layout title="uixmat - Privacy Policy">
+    <Layout title="404 - The Void">
       <div data-scroll-container ref={containerRef}>
         <motion.div
           data-scroll-section
-          className={styles.privacyPage}
+          className={styles.genericPage}
           variants={variants}
           initial="initial"
           animate={blob}
@@ -54,8 +54,8 @@ function Privacy() {
               <Blob />
             </motion.div>
 
-            <motion.div className={styles.privacy} variants={fadeIn}>
-              <h1>No tracking here</h1>
+            <motion.div className={styles.text} variants={fadeIn}>
+              <h1>Welcome to the void</h1>
             </motion.div>
           </div>
         </motion.div>
@@ -64,4 +64,4 @@ function Privacy() {
   )
 }
 
-export default Privacy
+export default Error404
