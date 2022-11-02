@@ -13,7 +13,10 @@ import Footer from '../components/Footer'
 function HomePage() {
   const containerRef = useRef(null)
   return (
-    <Layout title="uixmat - Creative Developer & Designer">
+    <Layout
+      title="uixmat - Creative Developer & Designer"
+      description="This is my personal website that I have open-sourced to the community to use, learn from and enjoy."
+    >
       <div data-scroll-container ref={containerRef}>
         <Hero />
         <Intro />
