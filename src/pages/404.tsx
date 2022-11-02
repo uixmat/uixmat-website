@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import Link from 'next/link'
 import { motion, useAnimation } from 'framer-motion'
 import Layout from '../components/common/Layout'
 import Blob from '../components/common/Blob'
@@ -54,9 +55,14 @@ function Error404() {
               <Blob />
             </motion.div>
 
-            <motion.div className={styles.text} variants={fadeIn}>
-              <h1>Welcome to the void</h1>
+            <motion.div
+              className={`${styles.text} ${styles.error}`}
+              variants={fadeIn}
+            >
+              <h1>404 Lost in the void</h1>
             </motion.div>
+
+            <div className={styles.void} />
           </div>
         </motion.div>
       </div>
