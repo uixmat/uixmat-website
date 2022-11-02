@@ -3,21 +3,26 @@
 @import '../variables.scss';
 
 .privacyPage {
-  display: block;
-  width: 100%;
-  padding: 100px 0;
-  .container {
-    @include mixins.container(sm);
-    .privacy {
-      background: $white;
-      padding: 4rem;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  .privacy {
+    display: block;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    mix-blend-mode: plus-lighter;
+    pointer-events: none;
 
-      p {
-        font-size: 16px;
-        @include mixins.font-global(400);
-        line-height: 1.45rem;
-        color: $gray;
-        margin-bottom: 1rem;
+    h1 {
+      font-size: 40px;
+      color: $purple;
+      margin-bottom: 1rem;
+      transition: font-size 0.18s ease-in-out;
+      @include mixins.breakpoint(sm) {
+        font-size: 90px;
       }
     }
   }

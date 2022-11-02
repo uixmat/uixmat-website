@@ -1,52 +1,64 @@
 import { useRef } from 'react'
+import { motion, useAnimation } from 'framer-motion'
 import Layout from '../components/common/Layout'
 import Blob from '../components/common/Blob'
 import styles from '../scss/pages/privacy.module.scss'
 
 function Privacy() {
   const containerRef = useRef(null)
+  const blob = useAnimation()
+
+  const variants = {
+    initial: { opacity: 0 },
+    enter: {
+      opacity: 1,
+      transition: {
+        delay: 0.5,
+        when: 'beforeChildren',
+        staggerChildren: 0.05,
+      },
+    },
+  }
+
+  const fadeIn = {
+    initial: {
+      opacity: 0,
+    },
+    enter: {
+      opacity: 1,
+      transition: {
+        duration: 1.5,
+        when: 'beforeChildren',
+        staggerChildren: 0.05,
+      },
+    },
+  }
+
+  const startAnimation = async () => {
+    await blob.start('enter')
+  }
+  startAnimation()
+
   return (
     <Layout title="uixmat - Privacy Policy">
       <div data-scroll-container ref={containerRef}>
-        <div data-scroll-section className={styles.privacyPage}>
-          <Blob />
+        <motion.div
+          data-scroll-section
+          className={styles.privacyPage}
+          variants={variants}
+          initial="initial"
+          animate={blob}
+        >
+          <div>
+            <motion.div variants={fadeIn}>
+              <Blob />
+            </motion.div>
 
-          <div className={styles.container}>
-            <div className={styles.privacy}>
-              <h1>Privacy Policy</h1>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero
-                dicta atque consequatur labore eligendi minus voluptatum aperiam
-                voluptas. Voluptas repudiandae deserunt error aspernatur sit
-                blanditiis. Optio officia laboriosam modi iure.
-              </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero
-                dicta atque consequatur labore eligendi minus voluptatum aperiam
-                voluptas. Voluptas repudiandae deserunt error aspernatur sit
-                blanditiis. Optio officia laboriosam modi iure.
-              </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero
-                dicta atque consequatur labore eligendi minus voluptatum aperiam
-                voluptas. Voluptas repudiandae deserunt error aspernatur sit
-                blanditiis. Optio officia laboriosam modi iure.
-              </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero
-                dicta atque consequatur labore eligendi minus voluptatum aperiam
-                voluptas. Voluptas repudiandae deserunt error aspernatur sit
-                blanditiis. Optio officia laboriosam modi iure.
-              </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero
-                dicta atque consequatur labore eligendi minus voluptatum aperiam
-                voluptas. Voluptas repudiandae deserunt error aspernatur sit
-                blanditiis. Optio officia laboriosam modi iure.
-              </p>
-            </div>
+            <motion.div className={styles.privacy} variants={fadeIn}>
+              <h1>No tracking here</h1>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </Layout>
   )
