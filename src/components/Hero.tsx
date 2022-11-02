@@ -1,9 +1,10 @@
 import { motion, useAnimation } from 'framer-motion'
-import Brain from '../assets/brain.svg'
+import Blob from './common/Blob'
 import styles from './Hero.module.scss'
 
 const Hero = (): JSX.Element => {
   const HeroLine = useAnimation()
+  const blob = useAnimation()
 
   const variants = {
     initial: { opacity: 0 },
@@ -11,6 +12,20 @@ const Hero = (): JSX.Element => {
       opacity: 1,
       transition: {
         delay: 0.5,
+        when: 'beforeChildren',
+        staggerChildren: 0.05,
+      },
+    },
+  }
+
+  const fadeIn = {
+    initial: {
+      opacity: 0,
+    },
+    enter: {
+      opacity: 1,
+      transition: {
+        duration: 1.5,
         when: 'beforeChildren',
         staggerChildren: 0.05,
       },
@@ -25,18 +40,6 @@ const Hero = (): JSX.Element => {
     enter: {
       opacity: 1,
       y: 0,
-    },
-  }
-
-  const brain = {
-    initial: {
-      opacity: 0,
-    },
-    enter: {
-      opacity: 1,
-      transition: {
-        duration: 2,
-      },
     },
   }
 
@@ -59,6 +62,7 @@ const Hero = (): JSX.Element => {
 
   const startAnimation = async () => {
     await HeroLine.start('enter')
+    await blob.start('enter')
   }
 
   startAnimation()
@@ -170,9 +174,14 @@ const Hero = (): JSX.Element => {
               r
             </motion.i>
           </div>
-          <motion.div className={styles.brain} variants={brain}>
-            <Brain />
-          </motion.div>
+        </motion.div>
+        <motion.div
+          data-scroll
+          variants={fadeIn}
+          initial="initial"
+          animate={blob}
+        >
+          <Blob />
           <a
             href="#intro"
             data-scroll-to
