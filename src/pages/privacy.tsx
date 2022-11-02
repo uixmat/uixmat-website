@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import Layout from '../components/common/Layout'
+import Blob from '../components/common/Blob'
 import styles from '../scss/pages/privacy.module.scss'
 
 function Privacy() {
@@ -8,6 +9,8 @@ function Privacy() {
     <Layout title="uixmat - Privacy Policy">
       <div data-scroll-container ref={containerRef}>
         <div data-scroll-section className={styles.privacyPage}>
+          <Blob />
+
           <div className={styles.container}>
             <div className={styles.privacy}>
               <h1>Privacy Policy</h1>
