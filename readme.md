@@ -1,6 +1,6 @@
 # uixmat.dev :wavy_dash: Portfolio
 
-This is my personal website that i have open-sourced to the community to use, learn from and enjoy.
+This is my personal website that I have open-sourced to the community to use, learn from and enjoy. If you like this project please give it a :star: Star!
 
 ### [Live Demo](https://uixmat.dev)
 
