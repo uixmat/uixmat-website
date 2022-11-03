@@ -10,10 +10,10 @@ const testimonials = [
   },
   {
     id: 1,
-    authorImg: "/images/ethan.jpeg",
-    authorFirstName: "Ethan",
-    authorLastName: "Cooper",
-    authorPos: "Skybox CEO & Co-Founder",
+    authorImg: "/images/dimitar.jpeg",
+    authorFirstName: "Dimitar",
+    authorLastName: "Mitov",
+    authorPos: "Flytro Co-Founder",
     text:
       "Matt's ability to design and implement complex design patterns enabled him to take our brand to the next level."
   },
