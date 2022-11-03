@@ -55,25 +55,41 @@ const Footer = () => {
       </div>
       <div className={styles.container}>
         <div className={styles.connections}>
-          <a href="https://twitter.com" rel="noreferrer" target="_blank">
+          <a
+            href="https://twitter.com/uixmat/"
+            rel="noreferrer"
+            target="_blank"
+          >
             <span>
               <FaTwitter className={styles.icon} />
               Twitter
             </span>
           </a>
-          <a href="https://twitter.com" rel="noreferrer" target="_blank">
+          <a
+            href="https://www.instagram.com/army.burning/"
+            rel="noreferrer"
+            target="_blank"
+          >
             <span>
               <FaInstagram className={styles.icon} />
               Instagram
             </span>
           </a>
-          <a href="https://twitter.com" rel="noreferrer" target="_blank">
+          <a
+            href="https://www.linkedin.com/in/uixmat/"
+            rel="noreferrer"
+            target="_blank"
+          >
             <span>
               <FaLinkedin className={styles.icon} />
               Linkedin
             </span>
           </a>
-          <a href="https://twitter.com" rel="noreferrer" target="_blank">
+          <a
+            href="https://github.com/mattsince87"
+            rel="noreferrer"
+            target="_blank"
+          >
             <span>
               <FaGithub className={styles.icon} />
               GitHub
