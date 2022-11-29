@@ -10,6 +10,7 @@
   padding-top: calc(20px + 2rem);
   background: $dark;
   color: $white;
+  position: relative;
   @include mixins.breakpoint(sm) {
     min-height: 100vh;
     padding: 0;
