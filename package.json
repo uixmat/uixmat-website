@@ -13,7 +13,7 @@
     "@splinetool/runtime": "^0.9.132",
     "framer-motion": "7.5.2",
     "locomotive-scroll": "^4.1.4",
-    "next": "12.3.2-canary.28",
+    "next": "13.0.5",
     "nprogress": "^0.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -30,7 +30,7 @@
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
     "eslint": "8.25.0",
-    "eslint-config-next": "12.3.1",
+    "eslint-config-next": "13.0.5",
     "eslint-config-prettier": "^8.5.0",
     "prettier": "^2.7.1",
     "typescript": "^4.8.4"
